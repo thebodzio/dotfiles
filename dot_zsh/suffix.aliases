@@ -1,0 +1,24 @@
+# A way to associate given extension with a program to open it
+
+# Pictures
+alias -s gif=sxiv
+alias -s jpeg=sxiv
+alias -s jpg=sxiv
+alias -s pbm=sxiv
+alias -s pgm=sxiv
+alias -s png=sxiv
+alias -s pnm=sxiv
+alias -s ppm=sxiv
+alias -s tif=sxiv
+alias -s tiff=sxiv
+
+# Video
+alias -s avi=mpv
+alias -s mkv=mpv
+alias -s mp4=mpv
+
+# Docs
+alias -s djvu=zathura
+alias -s doc=soffice
+alias -s odt=soffice
+alias -s pdf=zathura

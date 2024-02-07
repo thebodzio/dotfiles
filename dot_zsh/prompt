@@ -1,0 +1,87 @@
+#!/bin/zsh
+
+# Must be done to disable POWERLEVEL9K prompt
+# Remove precmd hook
+#export precmd_functions=(omz_termsupport_precmd _zsh_highlight_main__precmd_hook)
+#
+# Remove zle keymaps if set by POWERLEVEL9K
+#zle -D zle-keymap-select
+#zle -D zle-line-finish
+#zle -D zle-line-init
+
+# Clear RPROMPT
+export RPROMPT=
+
+# A script to set nice prompt's depending on user, host,
+# wether it is a remote or local session and similar
+
+# Colors
+C_BRBLACK='%F{8}'
+C_BLACK='%F{black}'
+C_BRRED='%F{9}'
+C_RED='%F{red}'
+C_BRGREEN='%F{10}'
+C_GREEN='%F{green}'
+C_BRYELLOW='%F{11}'
+C_YELLOW='%F{yellow}'
+C_BRBLUE='%F{12}'
+C_BLUE='%F{blue}'
+C_BRMAGENTA='%F{13}'
+C_MAGENTA='%F{megenta}'
+C_BRCYAN='%F{14}'
+C_CYAN='%F{cyan}'
+C_BRWHITE='%F{15}'
+C_WHITE='%F{white}'
+
+C_STOP='%f'
+
+C_LINES=${C_BRRED}
+C_ERROR=${C_RED}
+C_USER_ROOT=${C_RED}
+C_USER=${C_GREEN}
+C_AT=${C_BRGREEN}
+C_LOCAL_HOST=${C_GREEN}
+C_REMOTE_HOST=${C_CYAN}
+C_TIME=${C_BRBLUE}
+C_WORKING_DIRECTORY=${C_BRBLUE}
+
+# Frames
+LT_CORNER=$'\u250C'
+BL_CORNER=$'\u2514'
+LINE=$'\u2500'
+
+# Utils
+ERROR_RETVAL="\$(es=\$?; if [[ \$es != 0 ]]; then echo -e \"[ ${C_ERROR}\$es${C_LINES} ]\"; fi; unset es)"
+
+DIR_FILES="\$(ls -1 | wc -l | sed 's: ::g')"
+DIR_SIZE="\$(ls -lah | grep -m 1 total | sed 's/total //')B"
+
+# Terminal title
+# Doesn't work right now
+TERM_TITLE_START=$'\[\e]0;'
+TERM_TITLE_STOP=$'\a\]'
+TERM_TITLE="${TERM_TITLE_START}TEST - TEST - TEST - %* - \u@\h: \W${TERM_TITLE_STOP}"
+
+# PS1 definition
+PS1="${C_STOP}${C_LINES}${LT_CORNER}${LINE}[ "
+
+if [[ "$USER" == "root" ]]; then
+	PS1="$PS1${C_USER_ROOT}"
+else
+	PS1="$PS1${C_USER}"
+fi
+
+PS1="$PS1%n${C_AT}@${C_LOCAL_HOST}"
+
+if [[ ${SSH_CLIENT} ]] || [[ ${SSH2_CLIENT} ]]; then
+	PS1="$PS1${C_REMOTE_HOST}"
+fi
+
+#PS1="$PS1\h $C_LINES]$LINE[ $C_WORKING_DIRECTORY\w $C_LINES]\n"
+PS1="$PS1%m ${C_LINES}]${LINE}[ ${C_TIME}%D{%H:%M:%S} ${C_LINES}]${LINE}[ ${C_WORKING_DIRECTORY}%~ ${C_LINES}]"$'\n'
+PS1="$PS1${C_LINES}${BL_CORNER}${LINE}"
+PS1="$PS1${ERROR_RETVAL}${LINE}> :${C_STOP} "
+
+export PS1=$PS1
+
+# vim: set ft=sh:
