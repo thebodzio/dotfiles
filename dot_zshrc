@@ -59,7 +59,7 @@ fi
 # Load zgen
 # Remember to "zgen reset" whenever .zshrc zgen portion is modified!
 # zgen itself should be in a different directory than ".zgen".
-source ~/.zgen-master/zgen.zsh
+source ~/.zgen/zgen.zsh
 
 if ! zgen saved; then
 	echo "Generating a zgen save"
