@@ -1,0 +1,51 @@
+" Plugins
+
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fugitive'
+Plug 'lervag/vimtex'
+
+" Themes, colours, visuals
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'thenewvu/vim-colors-arthur'
+Plug 'sainnhe/gruvbox-material'
+Plug 'ryanoasis/vim-devicons'
+Plug 'morhetz/gruvbox'
+
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
+
+" Themes, colours, visuals
+"colorscheme arthur
+colorscheme gruvbox-material
+
+" Airline
+let g:airline_powerline_fonts = 1
+"let g:airline_theme='<theme>'
+
+set encoding=utf8
+set backspace=indent,eol,start
+set belloff=all
+
+set modeline
+
+unlet! skip_defaults_cim
+source $VIMRUNTIME/defaults.vim
+
+set colorcolumn=80
