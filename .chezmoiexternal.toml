@@ -1,0 +1,7 @@
+# Install zgen (zsh package manager)
+# It pulls oh-my-zsh automatically via expressions in .zshrc
+
+[".zgen"]
+    type = "git-repo"
+    url = "https://github.com/tarjoilija/zgen.git"
+    refreshPeriod = "168h"
