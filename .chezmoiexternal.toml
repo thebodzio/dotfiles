@@ -5,3 +5,9 @@
     type = "git-repo"
     url = "https://github.com/tarjoilija/zgen.git"
     refreshPeriod = "168h"
+
+# plug.vim lightweight Vim plugin manager
+[".vim/autoload/plug.vim"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    refreshPeriod = "168h"
