@@ -32,6 +32,10 @@ call plug#end()
 "   syntax off            " Disable syntax highlighting
 
 
+" File encodings
+set fileencodings=ucs-bom,utf-8,default,latin2
+
+
 " Themes, colours, visuals
 "colorscheme arthur
 " Important!!
