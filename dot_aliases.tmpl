@@ -1,4 +1,11 @@
 # Aliases
+
+{{- if eq .chezmoi.os "linux" }}
+COLOR="--color=auto"
+{{- else if eq .chezmoi.os "darwin" }}
+COLOR="-G"
+{{- end }}
+
 alias 'ps?'='ps ax | grep -v grep | grep -i '
 alias alog='multitail /var/log/annon.log'
 alias ckgremlins='fping -A -d -e -B 1.0 annon barad1 barad2 barad3 iant.patla barad.patla iant.smas barad1.smas barad2.smas | sed "s/[()]\|is\|\.gremlins\.org//g" | sort -k 2 -V | column -t'
@@ -7,18 +14,18 @@ alias decrypt='gpg -q --no-tty -d'
 alias elog='multitail /var/log/everything.log'
 alias encrypt='gpg -e'
 alias gephi='gephi --jdkhome /usr/lib/jvm/java-7-jre/jre/'
-alias grep='grep --color'
+alias grep="grep $COLOR"
 alias hibernate='systemctl hibernate'
 alias ip='ip -c'
 alias java='java -Dawt.useSystemAAFontSettings=lcd'
 alias keyval="grep --colour=never -s ''"
-alias l1='ls -1 --color'
-alias l='ls --color'
+alias l1="ls -1 $COLOR"
+alias l="ls $COLOR"
 alias la='l -A'
-alias ll='ls -lh --color'
+alias ll="ls -lh $COLOR"
 alias lla='ll -A'
 alias log='multitail /var/log/messages.log'
-alias ls='ls --color=auto'
+alias ls="ls $COLOR"
 alias lss='ls -sh | grep -iv ls.snap > ls.snap'
 alias mkpd='mkdir sources current release'
 alias poweroff='systemctl poweroff'
@@ -30,5 +37,6 @@ alias suspend='systemctl suspend'
 alias ts='date +%Y%m%d%H%M'
 alias tss='date +%Y%m%d'
 #alias ytmp3="youtube-dl --extract-audio --audio-format mp3 --audio-quality 5 --output '~/Stock/Music/YouTube/%(title)s-%(id)s.%(ext)s'"
+
 
 # vim: set ts=4 ai nowrap ft=sh:
