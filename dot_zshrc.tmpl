@@ -46,7 +46,11 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 # Change POWERLEVEL9K colors if terminal is accessed remotely
 
 # Use when connected to studio.ruthenus.pl
+{{- if eq .chezmoi.os "linux" }}
 if [[ `/usr/bin/hostname --domain` == 'studio.ruthenus.pl' ]]; then
+{{- else if eq .chezmoi.os "darwin" }}
+if [[ `/bin/hostname` == 'studio.ruthenus.pl' ]]; then
+{{- end }}
 	POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND='009' # orange
 	POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='black'
 
