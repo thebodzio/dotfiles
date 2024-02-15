@@ -101,7 +101,13 @@ source ~/.aliases
 source ~/.zsh/suffix.aliases
 
 # ls colors
+{{- if eq .chezmoi.os "linux" }}
 eval `dircolors ~/.config/dircolors.256dark`
+{{- else if eq .chezmoi.os "darwin" }}
+# gdircolors is part of homebrew core
+# -- do not expect it to be available out of the box
+eval `gdircolors ~/.config/dircolors.256dark`
+{{- end }}
 
 # Freeze terminal settings to prevent programs from messing them up
 # and forcing user to reset terminal
