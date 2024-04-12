@@ -37,6 +37,16 @@ call plug#end()
 set fileencodings=ucs-bom,utf-8,default,latin2
 
 
+" Custom filetypes
+augroup quadlet
+  au!
+  au BufRead,BufNewFile *.pod       setfiletype systemd
+  au BufRead,BufNewFile *.container setfiletype systemd
+  au BufRead,BufNewFile *.network   setfiletype systemd
+  au BufRead,BufNewFile *.volume    setfiletype systemd
+augroup END
+
+
 " Themes, colours, visuals
 "colorscheme arthur
 " Important!!
