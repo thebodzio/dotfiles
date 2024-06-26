@@ -80,6 +80,7 @@ if ! zgen saved; then
 	# Zgen will pull this repository itself--you don't have to do it yourself.
 	zgen load zsh-users/zsh-syntax-highlighting
 	zgen load zsh-users/zsh-completions
+	zgen load zsh-users/zsh-autosuggestions
 
 	# Themes
 	# Color-dependent theme selection after this section
@@ -163,3 +164,5 @@ man() {
 # PATH
 PATH="$HOME/.scripts:$PATH"
 PATH="$HOME/.local/bin:$PATH"
+
+# vim: ft=sh
