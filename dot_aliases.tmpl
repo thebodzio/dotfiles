@@ -22,7 +22,13 @@ alias keyval="grep --colour=never -s ''"
 alias l1="ls -1 $COLOR"
 alias l="ls $COLOR"
 alias la='l -A'
+
+{{- if lookPath "eza" }}
+alias ll="eza -lh --group --icons"
+{{- else }}
 alias ll="ls -lh $COLOR"
+{{- end -}}
+
 alias lla='ll -A'
 alias log='multitail /var/log/messages.log'
 alias ls="ls $COLOR"
@@ -36,7 +42,10 @@ alias sqlite='sqlite3 -column -header -nullvalue "NULL"'
 alias suspend='systemctl suspend'
 alias ts='date +%Y%m%d%H%M'
 alias tss='date +%Y%m%d'
+
+{{- if lookPath "nvim" }}
 alias vim=nvim
+{{- end }}
 #alias ytmp3="youtube-dl --extract-audio --audio-format mp3 --audio-quality 5 --output '~/Stock/Music/YouTube/%(title)s-%(id)s.%(ext)s'"
 
 
