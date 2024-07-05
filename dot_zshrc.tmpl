@@ -107,8 +107,10 @@ export EZA_ICON_SPACING=2
 {{- if stat (joinPath .chezmoi.homeDir ".texlive") }}
 export MANPATH=$MANPATH:$HOME/.texlive/2024/texmf-dist/doc/man
 export INFOPATH=$INFOPATH:$HOME/.texlive/2024/texmf-dist/doc/info
-export PATH=$PATH:$HOME/.texlive/2024/bin/x86_64-linux
+export PATH=$HOME/.texlive/2024/bin/x86_64-linux:$PATH
 {{- end }}
+
+export PATH=$HOME/.bin:$PATH
 
 source ~/.aliases
 source ~/.zsh/suffix.aliases
