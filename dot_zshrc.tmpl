@@ -98,16 +98,16 @@ else
 fi
 
 # Custom settings
-BROWSER=firefox
-LESSOPEN='| highlight --out-format=xterm256 --force %s'
-LESS='-x4 -j3 -R -i'
-SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-EZA_ICON_SPACING=2
+export BROWSER=firefox
+export LESSOPEN='| highlight --out-format=xterm256 --force %s'
+export LESS='-x4 -j3 -R -i'
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export EZA_ICON_SPACING=2
 
 {{- if stat (joinPath .chezmoi.homeDir ".texlive") }}
-MANPATH="$MANPATH:$HOME/.texlive/2024/texmf-dist/doc/man"
-INFOPATH="$INFOPATH:$HOME/.texlive/2024/texmf-dist/doc/info"
-PATH="$HOME/.texlive/2024/bin/x86_64-linux:$PATH"
+export MANPATH="$MANPATH:$HOME/.texlive/2024/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:$HOME/.texlive/2024/texmf-dist/doc/info"
+export PATH="$HOME/.texlive/2024/bin/x86_64-linux:$PATH"
 {{- end }}
 
 source ~/.aliases
@@ -170,8 +170,8 @@ man() {
 }
 
 # PATH
-PATH="$HOME/.scripts:$PATH"
-PATH="$HOME/.local/bin:$PATH"
-PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.scripts:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
 
 # vim: ft=sh
