@@ -153,22 +153,6 @@ bindkey '^[[3;5~' kill-word		# Ctrl + Delete
 bindkey '^[[H' beginning-of-line	# Home
 bindkey '^[[F' end-of-line		# End
 
-# Set man page coloring (taken from colored-man-pages.plugin.zsh)
-man() {
-        env \
-                LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-                LESS_TERMCAP_md=$(printf "\e[1;31m") \
-                LESS_TERMCAP_me=$(printf "\e[0m") \
-                LESS_TERMCAP_se=$(printf "\e[0m") \
-                LESS_TERMCAP_so=$(printf "\e[1;47;33m") \
-                LESS_TERMCAP_ue=$(printf "\e[0m") \
-                LESS_TERMCAP_us=$(printf "\e[1;32m") \
-                PAGER="${commands[less]:-$PAGER}" \
-                _NROFF_U=1 \
-                PATH="$HOME/bin:$PATH" \
-                        man "$@"
-}
-
 # PATH
 export PATH="$HOME/.scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
