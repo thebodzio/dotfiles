@@ -7,3 +7,6 @@ if vim.g.neovide then
 end
 
 vim.opt.cc = {80}
+
+-- For invisible characters
+vim.opt.listchars = "eol:¶,tab:» ,trail:~,extends:>,precedes:<,space:·"
