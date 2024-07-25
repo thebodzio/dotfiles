@@ -17,7 +17,7 @@ vim.opt.cc = {80}
 -- :rspell - make the most recent correction in the whole document
 -- zg - add word under the cursor as a good word to the spellfile list
 
-vim.opt.spelllang = 'pl_pl'
+vim.opt.spelllang = 'pl'
 --vim.opt.spelllang = 'en_gb'
 vim.opt.spell = true
 
