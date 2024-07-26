@@ -7,7 +7,7 @@ if vim.g.neovide then
 end
 
 -- Display vertical line at given number of characters
-vim.opt.cc = {80}
+vim.opt.colorcolumn = {80}
 
 
 -- Spell check
