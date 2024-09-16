@@ -24,7 +24,7 @@ alias l="ls $COLOR"
 alias la='l -A'
 
 {{- if lookPath "eza" }}
-alias ll="eza -lh --group --icons"
+alias ll="eza -lh --icons --group"
 {{- else }}
 alias ll="ls -lh $COLOR"
 {{- end }}
