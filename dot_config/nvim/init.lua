@@ -37,3 +37,13 @@ vim.opt.showbreak = '↪ '
 -- Currently (2024.07.22) neither Vim nor Neovim allow for soft-wrapping lines
 -- longer than given character count. columns option can be set, but it will
 -- affect the overall display area—status line included—not just the text area
+
+-- Filetypes
+vim.filetype.add({
+	extension = {
+			pod = 'systemd',
+			container = 'systemd',
+			network = 'systemd',
+			volume = 'systemd'
+	}
+})
