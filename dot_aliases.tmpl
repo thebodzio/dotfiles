@@ -19,19 +19,21 @@ alias hibernate='systemctl hibernate'
 alias ip='ip -c'
 alias java='java -Dawt.useSystemAAFontSettings=lcd'
 alias keyval="grep --colour=never -s ''"
-alias l1="ls -1 $COLOR"
-alias l="ls $COLOR"
-alias la='l -A'
 
 {{- if lookPath "eza" }}
-alias ll="eza -lh --icons --group"
+alias ls="eza --icons --group"
+alias lt="ls --tree"
 {{- else }}
-alias ll="ls -lh $COLOR"
-{{- end }}
-alias lla='ll -A'
-alias log='multitail /var/log/messages.log'
 alias ls="ls $COLOR"
-alias lss='ls -sh | grep -iv ls.snap > ls.snap'
+{{- end }}
+alias l="ls"
+alias ll="ls -lh"
+alias l1="l -1"
+alias la='l -A'
+alias lla='ll -A'
+alias lss='l -sh | grep -iv ls.snap > ls.snap'
+
+alias log='multitail /var/log/messages.log'
 alias mkpd='mkdir sources current release'
 alias poweroff='systemctl poweroff'
 alias pwgen='pwgen 16 1 -sy'
