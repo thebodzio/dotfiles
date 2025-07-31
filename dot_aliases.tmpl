@@ -35,6 +35,7 @@ alias lss='l -sh | grep -iv ls.snap > ls.snap'
 
 alias log='multitail /var/log/messages.log'
 alias mkpd='mkdir sources current release'
+alias pacman='pacman --color=auto'
 alias poweroff='systemctl poweroff'
 alias pwgen='pwgen 16 1 -sy'
 alias raid='cat /proc/mdstat'
@@ -49,6 +50,8 @@ alias vim=nvim
 {{- end }}
 alias yay='yay --color=always'
 #alias ytmp3="youtube-dl --extract-audio --audio-format mp3 --audio-quality 5 --output '~/Stock/Music/YouTube/%(title)s-%(id)s.%(ext)s'"
+
+alias yay='yay --color=auto'
 
 # Get rid of unwanted aliases
 unalias gm
